@@ -33,3 +33,19 @@ class BookListView(generic.ListView):
 class AuthorListView(generic.ListView):
     model = models.Author
     queryset = models.Author.objects.filter(last_name__icontains = 'Hong')[:2]
+
+
+class BookDetailView(generic.DetailView):
+    medel = models.Book
+
+    def  get_queryset(self):
+        return models.Book.objects.all()
+
+
+# def book_detail_view(request, pk):
+#     try:
+#         book_id = models.Book.objects.get(pk = pk)
+#     except Book.DoesNotExist:
+#         raise Http404("Book does not exist. ")
+#
+#     return render(request, 'book/book_detail.html',context = {'book': book})

@@ -1,3 +1,13 @@
 h1{
   color: tomato;
 }
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: #2E3B45 !important;
+    padding-top: 20px;
+}
+.bg-light {
+    background-color: #1e78de!important;
+}
+#navbar-brand{
+  background-color: #2E3B45 !important;
+}

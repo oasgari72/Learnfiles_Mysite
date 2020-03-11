@@ -18,10 +18,23 @@
       <h2>Dynamic content</h2>
       <p>The libraary has the follwing record count: </p>
       <ul class="list-unstyled">
-        <li><p><strong>Number of Books: </strong>{{ num_books }}</p></li>
-        <li><p><strong>Number of Instances: </strong>{{ num_instances }}</p></li>
-        <li><p><strong>Number of instances available: </strong>{{ num_instances_available }}</p></li>
-        <li><p><strong>Number of Authors: </strong>{{ num_author }}</p></li>
+        <li><p><strong>Title: </strong>{{book.title}}</p></li>
+        <li><p><strong>Summery </strong>{{book.summary}}</p></li>
+        <li><p><strong>ISBN: </strong>{{book.isbn}}</p></li>
+        <li>
+          <p><strong>Instances: </strong>
+            <ul>
+              {% for x in book.bookinstance_set.all %}
+                {% if x.status != 'a' %}
+                  <li><p><strong>Due Back: </strong>{{ x.due_back }}</p></li>
+                  <li><p><strong>Imprint: </strong>{{ x.imprint }}</p></li>
+                  <li><p><strong>ID: </strong>{{ x.id }}</p></li><hr/>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+          </p>
+        </li>
       </ul>
     </div>
   </div>
